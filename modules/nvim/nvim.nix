@@ -1,6 +1,11 @@
-{ pkgs, ...}: {
+{ config, lib, pkgs, inputs, ... }:
+let
+  neovim = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+in
+{
   programs.neovim = {
     enable = true;
+    package = neovim;
     withNodeJs = true;
     withPython3 = true;
     withRuby = false;
