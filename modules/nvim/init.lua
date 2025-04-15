@@ -45,7 +45,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-commentary'
   use 'tpope/vim-fugitive'
 
-  use 'neovim/nvim-lspconfig'
+  use { 'neovim/nvim-lspconfig', commit = "v1.8.0" }
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp'
   use 'L3MON4D3/LuaSnip'
