@@ -20,6 +20,10 @@
         modules = [
           ./home.nix
           ./hosts/hermes.nix
+	  ./modules/git/git.nix
+	  ./modules/nvim/nvim.nix
+	  ./modules/tmux/tmux.nix
+	  ./modules/zsh/zsh.nix
         ];
         extraSpecialArgs = { inherit system; };
       };
