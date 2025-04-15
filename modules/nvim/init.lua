@@ -57,3 +57,6 @@ require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
+
+vim.keymap.set('n', '<leader>f', function() require('telescope.builtin').find_files() end, { remap = false })
+vim.keymap.set('n', '<leader>s', '<cmd>:Git<cr>', { remap = false })
