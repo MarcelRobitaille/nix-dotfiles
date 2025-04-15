@@ -16,4 +16,6 @@
       bind-key -n M-l select-pane -R
     '';
   };
+
+  home.file.".tmux.conf".source = ./tmux.conf;
 }
