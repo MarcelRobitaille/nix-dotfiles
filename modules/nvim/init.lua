@@ -30,7 +30,7 @@ require("lazy").setup({
   },
 
   -- LSP configuration
-  { "neovim/nvim-lspconfig", commit = "v1.8.0" },
+  { "neovim/nvim-lspconfig" },
 
   -- Theme
   { "folke/tokyonight.nvim" },
@@ -108,25 +108,13 @@ require("lazy").setup({
   { "m00qek/baleia.nvim" },
 
   -- File management with oil.nvim
-  {
-    "stevearc/oil.nvim",
-    config = function()
-      require("oil").setup({
-        -- configuration details here...
-      })
-    end,
-  },
+  { "stevearc/oil.nvim" },
 
   -- Diff viewer
   { "sindrets/diffview.nvim" },
-
-  -- Lazy bootstrap sync
-  {
-    config = function()
-      require("lazy").sync()
-    end,
-  },
 })
+
+require("oil").setup({})
 
 vim.opt.winbar = ' '
 vim.opt.laststatus = 3
