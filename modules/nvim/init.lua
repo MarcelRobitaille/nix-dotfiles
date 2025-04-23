@@ -255,7 +255,7 @@ vim.api.nvim_create_user_command('WriteOrphanedFile', WriteOrphanedFile, { bang 
 vim.api.nvim_create_autocmd("TextYankPost", {
    pattern = { "*" },
    callback = function()
-      require('vim.highlight').on_yank({ higroup = 'IncSearch', timeout = 300 })
+     vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 300 })
 
       if vim.v.event.regname == '+' then
          require('osc52').copy_register('+')
