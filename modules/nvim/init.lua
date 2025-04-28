@@ -123,6 +123,9 @@ require("lazy").setup({
   { "hrsh7th/cmp-nvim-lsp-signature-help" },
 
   { "wincent/ferret" },
+
+  { "nvim-lualine/lualine.nvim" },
+  { "SmiteshP/nvim-navic" },
 })
 
 require("oil").setup({})
