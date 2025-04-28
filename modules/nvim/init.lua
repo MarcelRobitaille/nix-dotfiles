@@ -113,6 +113,7 @@ require("lazy").setup({
   -- Diff viewer
   { "sindrets/diffview.nvim" },
 
+  { "nvimdev/lspsaga.nvim" },
   { "neovim/nvim-lspconfig" },
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-buffer" },
