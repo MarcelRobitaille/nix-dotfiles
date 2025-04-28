@@ -398,3 +398,7 @@ vim.g.easy_align_delimiters = {
       pattern = [[//!<]],
    },
 }
+
+vim.keymap.set('n', '<C-_>', '<Plug>CommentaryLine', { remap = false })
+vim.keymap.set('i', '<C-_>', "<C-r>=substitute(&commentstring, '%s', '', '')<CR>", { remap = false })
+vim.keymap.set('v', '<C-_>', '<Plug>Commentary', { remap = false })
