@@ -10,3 +10,19 @@ bindkey '^P' up-line-or-beginning-search
 bindkey '^N' down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search:w
+
+alias g="git"
+alias s="git status -s"
+alias a="git add "
+alias aa="git add -A"
+alias c="git commit "
+alias cm="git commit -m "
+alias cam="git commit -am "
+alias d="git diff "
+alias p="git push"
+alias pl="git pull"
+alias co="git checkout"
+
+mkd() {
+	mkdir -p "$@" && cd "$_";
+}
