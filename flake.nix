@@ -23,16 +23,16 @@
         modules = [
           ./home.nix
           ./hosts/hermes.nix
-	  ./modules/git/git.nix
-	  ./modules/nvim/nvim.nix
-	  ./modules/tmux/tmux.nix
-	  ./modules/zsh/zsh.nix
+          ./modules/desktop/desktop.nix
+          ./modules/git/git.nix
+          ./modules/nvim/nvim.nix
+          ./modules/tmux/tmux.nix
+          ./modules/zsh/zsh.nix
         ];
         extraSpecialArgs = {
-	  inherit system;
-	  inherit inputs;
-	};
+          inherit system;
+          inherit inputs;
+        };
       };
     };
 }
-
