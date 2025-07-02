@@ -27,6 +27,8 @@ alias p="git push"
 alias pl="git pull"
 alias co="git checkout"
 
+alias mux="tmuxinator"
+
 mkd() {
 	mkdir -p "$@" && cd "$_";
 }
