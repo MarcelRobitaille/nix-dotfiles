@@ -42,7 +42,7 @@ Comment[uk]=Перегляд сторінок Інтернету
 Comment[vi]=Để duyệt các trang web
 Comment[zh_CN]=浏览互联网
 Comment[zh_TW]=瀏覽網際網路
-Exec=/usr/lib/firefox/firefox %u -P default-release
+Exec=/run/current-system/sw/bin/firefox %u -P default-release
 GenericName=Web Browser
 GenericName[ar]=متصفح ويب
 GenericName[ast]=Restolador Web
@@ -163,7 +163,7 @@ X-KDE-SubstituteUID=false
 X-KDE-Username=
 
 [Desktop Action new-private-window]
-Exec=/usr/lib/firefox/firefox --private-window %u
+Exec=/run/current-system/sw/bin/firefox --private-window %u
 Name=Open a New Private Window
 Name[ach]=Dirica manyen me mung
 Name[af]=Nuwe privaatvenster
@@ -271,7 +271,7 @@ Name[zh_CN]=新建隐私浏览窗口
 Name[zh_TW]=新增隱私視窗
 
 [Desktop Action new-window]
-Exec=/usr/lib/firefox/firefox --new-window %u
+Exec=/run/current-system/sw/bin/firefox --new-window %u
 Name=Open a New Window
 Name[ach]=Dirica manyen
 Name[af]=Nuwe venster
@@ -379,7 +379,7 @@ Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
 
 [Desktop Action profile-manager-window]
-Exec=/usr/lib/firefox/firefox --ProfileManager
+Exec=/run/current-system/sw/bin/firefox --ProfileManager
 Name=Open the Profile Manager
 Name[cs]=Správa profilů
 Name[de]=Profilverwaltung öffnen
@@ -387,9 +387,9 @@ Name[es]=Abrir el Gestor de Perfiles
 Name[fr]=Ouvrir le gestionnaire de profils
 
 [Desktop Action business]
-Exec=/usr/lib/firefox/firefox -P Business
+Exec=/run/current-system/sw/bin/firefox -P Business
 Name=Open Business profile
 
 [Desktop Action ddos]
-Exec=/usr/lib/firefox/firefox -P DDoS
+Exec=/run/current-system/sw/bin/firefox -P DDoS
 Name=Open DDoS profile
