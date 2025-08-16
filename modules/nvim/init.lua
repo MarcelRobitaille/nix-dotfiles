@@ -403,3 +403,10 @@ vim.g.easy_align_delimiters = {
 vim.keymap.set('n', '<C-_>', '<Plug>CommentaryLine', { remap = false })
 vim.keymap.set('i', '<C-_>', "<C-r>=substitute(&commentstring, '%s', '', '')<CR>", { remap = false })
 vim.keymap.set('v', '<C-_>', '<Plug>Commentary', { remap = false })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"fugiitiveblame", "fugitive"},
+  callback = function()
+    vim.api.nvim_buf_set_keymap(0, 'n', 'q', 'gq', { silent = true })
+  end,
+})
