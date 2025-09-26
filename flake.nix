@@ -27,6 +27,7 @@
           ./modules/git/git.nix
           ./modules/nvim/nvim.nix
           ./modules/tmux/tmux.nix
+          ./modules/tmuxinator/tmuxinator.nix
           ./modules/zsh/zsh.nix
         ];
         extraSpecialArgs = {

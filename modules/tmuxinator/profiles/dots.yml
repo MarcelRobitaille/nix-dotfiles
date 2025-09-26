@@ -1,0 +1,12 @@
+# /home/marcel/.config/tmuxinator/dots.yml
+
+name: dots
+root: ~/.dotfiles
+
+windows:
+  - nvim:
+      panes:
+        - nvim
+  - zsh:
+      panes:
+        - zsh
