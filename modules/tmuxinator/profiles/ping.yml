@@ -1,0 +1,10 @@
+name: ping
+root: ~/code/BCMtec/stm32h747_ethernet_ping/
+
+windows:
+  - nvim:
+      panes:
+        - nvim
+  - zsh:
+      panes:
+        - zsh
