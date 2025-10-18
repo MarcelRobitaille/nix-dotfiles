@@ -3,5 +3,10 @@
     enable = true;
     userName  = "Marcel Robitaille";
     userEmail = "marcelrobitaille11@gmail.com";
+    extraConfig = {
+      merge = {
+        conflictstyle = "zdiff3";
+      };
+    };
   };
 }
