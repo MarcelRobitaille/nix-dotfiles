@@ -80,7 +80,7 @@ in
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -108,7 +108,7 @@ in
 
   # Install firefox.
   programs.firefox.enable = true;
-  programs.firefox.nativeMessagingHosts.passff = true;
+  programs.firefox.nativeMessagingHosts.packages = with pkgs; [ passff-host ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
