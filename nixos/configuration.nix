@@ -158,9 +158,6 @@ in
 
     basedpyright
 
-    interception-tools
-    interception-tools-plugins.caps2esc
-
     home-manager
     just
     docker
@@ -176,8 +173,6 @@ in
     trayscale
   ];
 
-  # services.interception-tools.enable = true;
-  # services.interception-tools.plugins = [ pkgs.interception-tools-plugins.caps2esc ];
   services.interception-tools = {
     enable = true;
     plugins = [pkgs.interception-tools-plugins.caps2esc];
