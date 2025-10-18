@@ -151,6 +151,7 @@ in
     direnv
     binutils
     usbutils
+    ccls
 
     stm32cubemx
     stm32flash
