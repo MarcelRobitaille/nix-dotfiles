@@ -6,6 +6,10 @@ HISTFILE=~/.zsh_history
 autoload -Uz compinit
 compinit
 
+# case insensitive path-completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
+
 # Up/down search for matches of what's already there
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
