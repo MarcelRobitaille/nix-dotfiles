@@ -118,8 +118,9 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  # TODO: Sort and group this in a sensible way
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     htop
     btop
@@ -142,7 +143,18 @@ in
     direnv
     binutils
     usbutils
+    gcc
     ccls
+    file
+    unzip
+    nixfmt-rfc-style
+
+    # Networking
+    dig
+    sshfs
+
+    rofi-pass
+    wl-clipboard
 
     stm32cubemx
     stm32flash
@@ -154,15 +166,26 @@ in
     just
     docker
 
-    wl-clipboard
-    prusa-slicer
-
     python312
 
     obs-studio
     vlc
+    ffmpeg
+    ffmpegthumbnailer
+    unstable.handbrake
+
+    obsidian
+    prusa-slicer
+    thunderbird
+    gimp
 
     trayscale
+
+    qbittorrent
+
+    nerd-fonts.fira-code
+
+    steam
   ];
 
   services.interception-tools = {
