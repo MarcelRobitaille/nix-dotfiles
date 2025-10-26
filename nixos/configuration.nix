@@ -50,31 +50,22 @@ in
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-    # Enable AMD GPU driver
-  services.xserver.videoDrivers = [ "amdgpu" ];
-
-  hardware.opengl = {
+  services.xserver = {
     enable = true;
+
+    # Configure keymap in X11
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
   };
 
-  # Include AMD firmware blobs
-  hardware.enableRedistributableFirmware = true;
-  hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
+  services.libinput.mouse.accelProfile = "flat";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -265,7 +256,7 @@ in
 
   virtualisation.docker.enable = true;
 
-  boot.kernelParams = [ "amdgpu.abmlevel=0" ];
+  boot.kernelParams = [ "amdgpu.abmlevel=0" "amd_pstate=active" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # https://github.com/NixOS/nixos-hardware/tree/master/framework

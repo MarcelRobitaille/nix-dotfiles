@@ -9,7 +9,7 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
@@ -39,4 +39,20 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      mesa
+      vaapiVdpau
+      # libvdpau-va-gl
+    ];
+  };
+
+  # Enable AMD GPU driver
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
+  # Include AMD firmware blobs
+  hardware.enableRedistributableFirmware = true;
+  hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
 }
