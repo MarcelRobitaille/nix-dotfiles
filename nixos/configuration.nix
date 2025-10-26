@@ -5,18 +5,24 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  unstable = import <nixos-unstable> {
+    config = {
+      allowUnfree = true;
+    };
+  };
 in
 
 {
-  imports =
-    [
-      # https://github.com/NixOS/nixos-hardware
-      <nixos-hardware/framework/16-inch/7040-amd>
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # https://github.com/NixOS/nixos-hardware
+    <nixos-hardware/framework/16-inch/7040-amd>
+    ./hardware-configuration.nix
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -94,7 +100,11 @@ in
   users.users.marcel = {
     isNormalUser = true;
     description = "Marcel Robitaille";
-    extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "dialout"
+    ];
     shell = pkgs.zsh;
   };
 
@@ -105,10 +115,12 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-    nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-    }))
+  nixpkgs.overlays = [
+    (import (
+      builtins.fetchTarball {
+        url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+      }
+    ))
   ];
 
   programs.neovim = {
@@ -191,7 +203,7 @@ in
 
   services.interception-tools = {
     enable = true;
-    plugins = [pkgs.interception-tools-plugins.caps2esc];
+    plugins = [ pkgs.interception-tools-plugins.caps2esc ];
     udevmonConfig = ''
       - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.caps2esc}/bin/caps2esc | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
         DEVICE:
@@ -277,7 +289,10 @@ in
 
   virtualisation.docker.enable = true;
 
-  boot.kernelParams = [ "amdgpu.abmlevel=0" "amd_pstate=active" ];
+  boot.kernelParams = [
+    "amdgpu.abmlevel=0"
+    "amd_pstate=active"
+  ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # https://github.com/NixOS/nixos-hardware/tree/master/framework
