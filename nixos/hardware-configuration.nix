@@ -55,4 +55,7 @@
   # Include AMD firmware blobs
   hardware.enableRedistributableFirmware = true;
   hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 }
