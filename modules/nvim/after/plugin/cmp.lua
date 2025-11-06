@@ -17,6 +17,10 @@ cmp.setup({
    preselect = cmp.PreselectMode.None,
    snippet = {
       expand = function(args)
+         -- Only complete up to the first < or (. I find it annoying to have the snippets style tabbing through
+         -- different items. Often, I just want the class name to call something static with ::, not the constructor,
+         -- or I want to pass a function, not call it!
+         vim.snippet.expand(args.body:gsub("[<(].*", ''))
       end,
    },
    mapping = {
