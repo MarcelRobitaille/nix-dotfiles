@@ -17,7 +17,6 @@ cmp.setup({
    preselect = cmp.PreselectMode.None,
    snippet = {
       expand = function(args)
-         vim.fn["UltiSnips#Anon"](args.body)
       end,
    },
    mapping = {
@@ -39,7 +38,6 @@ cmp.setup({
    sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'nvim_lsp_signature_help' },
-      { name = 'ultisnips' },
       { name = 'path' },
       { name = 'calc' },
    }, {
