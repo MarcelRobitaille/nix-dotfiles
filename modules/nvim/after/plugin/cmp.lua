@@ -23,15 +23,18 @@ cmp.setup({
    mapping = {
       ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
       ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-      ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-      ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+
+      -- `cmp.SelectBehavior.Select` necessary to not confirm when selecting (happens sporatically, like if item
+      -- contains parenthesis)
+      ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { 'i', 'c' }),
+      ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { 'i', 'c' }),
+
       ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      ['<C-y>'] = cmp.mapping.confirm({ select = true }),
       ['<C-e>'] = cmp.mapping({
          i = cmp.mapping.abort(),
          c = cmp.mapping.close(),
       }),
-      -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
    },
    sources = cmp.config.sources({
       { name = 'nvim_lsp' },
@@ -54,33 +57,16 @@ cmp.setup.cmdline('/', {
    }
 })
 
-
-local cmdline_sources = cmp.config.sources({
-}, {
-   { name = 'cmdline' },
-}, {
-   { name = 'path' },
-})
-
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
    mapping = {
-      ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-      ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
-      ['/'] = cmp.mapping(function(fallback)
-         line = vim.fn.getcmdline()
-         i = vim.fn.getcmdpos()
-         print(line)
-         -- Determine if it's a substitution or global expression
-         -- In this case, double slash is normal bacause it means the previously searched thing
-         is_search = line:find('%%?[sg]') ~= nil or line:find("'<,'>[sg]") ~= nil
-         if #line == i - 1 and line:endswith('/') and not is_search then
-            cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }, function()
-               vim.defer_fn(cmp.complete, 1)
-            end)
-         else
-            fallback()
-         end
-      end, { 'i', 'c' }),
+      ['<C-y>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i', 'c' }),
+      ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { 'i', 'c' }),
+      ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { 'i', 'c' }),
    },
-   sources = cmdline_sources,
+   sources = cmp.config.sources({
+      { name = 'cmdline' },
+   }, {
+      { name = 'path' },
+   }),
 })
