@@ -23,6 +23,7 @@
         modules = [
           ./home.nix
           ./hosts/hermes.nix
+          ./modules/alacritty/alacritty.nix
           ./modules/desktop/desktop.nix
           ./modules/git/git.nix
           ./modules/nvim/nvim.nix
