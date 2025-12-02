@@ -278,6 +278,7 @@ in
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
+  services.udev.packages = with pkgs; [ platformio-core.udev ];
   services.udev.extraRules = ''
     # Prevent wakeup in backpack https://wiki.nixos.org/wiki/Hardware/Framework/Laptop_16
     SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0012", ATTR{power/wakeup}="disabled", ATTR{driver/1-1.1.1.4/power/wakeup}="disabled"
