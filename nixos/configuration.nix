@@ -54,7 +54,7 @@ in
     LC_NUMERIC = "en_US.UTF-8";
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    LC_TIME = "sv_SE.UTF-8"; # Use ISO 8601 time format
   };
 
   # Enable the KDE Plasma Desktop Environment.
@@ -109,8 +109,15 @@ in
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
-  programs.firefox.nativeMessagingHosts.packages = with pkgs; [ passff-host ];
+  programs.firefox = {
+    enable = true;
+    nativeMessagingHosts.packages = with pkgs; [ passff-host ];
+    policies = {
+      Preferences = {
+        "intl.regional_prefs.use_os_locales" = true;
+      };
+    };
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
