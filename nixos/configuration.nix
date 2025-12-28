@@ -142,73 +142,88 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # TODO: Sort and group this in a sensible way
   environment.systemPackages = with pkgs; [
+    # Essentials
+    home-manager
     vim
-    wget
-    htop
-    btop
-    unstable.kicad
     alacritty
-    pass
-    nextcloud-client
     ranger
     git
-    qrencode
+    docker
     tmux
     tmuxinator
-    gnupg
-    pinentry
-    pinentry-curses
-    pinentry-qt
-    inkscape
     bluez
     chromium
-    direnv
-    binutils
-    usbutils
-    gcc
-    ccls
+    python312
+
+    # Basic utilities
     file
     unzip
-    nixfmt-rfc-style
+    qrencode
+    htop
+    btop
+    binutils
+    usbutils
 
     # Networking
     dig
+    nmap
+    wget
     sshfs
+    filezilla
+    qbittorrent
+    trayscale
 
+    # Password related
+    pass
+    gnupg
     rofi-pass
     wl-clipboard
+    pinentry
+    pinentry-curses
+    pinentry-qt
 
+    # Compilers
+    gcc
+    cmake
+    gnumake
+
+    # Embedded
     stm32cubemx
     stm32flash
     stlink
 
+    # Development
     basedpyright
-
-    home-manager
+    ccls
+    direnv
     just
-    docker
+    starship
+    nixfmt-rfc-style
+    nerd-fonts.fira-code
 
-    python312
-
+    # Media
     obs-studio
     vlc
     ffmpeg
     ffmpegthumbnailer
     unstable.handbrake
-
-    obsidian
-    prusa-slicer
-    thunderbird
     gimp
+    inkscape
 
-    trayscale
+    # Office and organization
+    obsidian
+    thunderbird
+    nextcloud-client
 
-    qbittorrent
+    # 3D Printing
+    prusa-slicer
+    f3d
 
-    nerd-fonts.fira-code
+    # PCB
+    unstable.kicad
 
+    # Gaming
     steam
   ];
 
