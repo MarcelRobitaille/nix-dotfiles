@@ -1,0 +1,4 @@
+URL_field='url'
+USERNAME_field='user'
+AUTOTYPE_field='autotype'
+default_user=:filename
