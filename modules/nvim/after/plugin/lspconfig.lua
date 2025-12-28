@@ -3,9 +3,10 @@ local capabilities = vim.tbl_deep_extend("force",
 	require('cmp_nvim_lsp').default_capabilities()
 )
 
-require('lspconfig').basedpyright.setup({ capabilities = capabilities })
+vim.lsp.config("basedpyright", { capabilities = capabilities })
+vim.lsp.enable("basedpyright")
 
-require('lspconfig').rust_analyzer.setup({
+vim.lsp.config("rust_analyzer", {
 	capabilities = capabilities,
 	settings = {
 		['rust-analyzer'] = {
@@ -15,7 +16,9 @@ require('lspconfig').rust_analyzer.setup({
 		}
 	}
 })
+vim.lsp.enable("rust_analyzer")
 
-require('lspconfig').ccls.setup({
+vim.lsp.config("ccls", {
 	capabilities = capabilities,
 })
+vim.lsp.enable("ccls")
