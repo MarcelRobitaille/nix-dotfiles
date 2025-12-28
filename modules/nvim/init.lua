@@ -150,6 +150,7 @@ vim.opt.inccommand = "split"
 
 vim.opt.scrolloff = 10
 
+vim.o.termguicolors = true
 vim.cmd.colorscheme("onedark")
 
 vim.cmd('let mapleader = " "')

@@ -49,6 +49,7 @@ clone(){
 	git clone $1 $FOLDER && cd $FOLDER
 }
 
+export TERM=tmux-256color
 eval "$(direnv hook zsh)"
 
 setopt autocd
