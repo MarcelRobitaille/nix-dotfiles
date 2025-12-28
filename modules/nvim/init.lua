@@ -111,6 +111,16 @@ require("lazy").setup({
   -- File management with oil.nvim
   { "stevearc/oil.nvim" },
 
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        lua = { "stylua" },
+        nix = { "nixfmt" },
+      }
+    },
+  },
+
   -- Diff viewer
   { "sindrets/diffview.nvim" },
 
@@ -411,3 +421,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.api.nvim_buf_set_keymap(0, 'n', 'q', 'gq', { silent = true })
   end,
 })
+
+vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+vim.keymap.set('n', ',f', function() require("conform").format() end, { remap = false })
