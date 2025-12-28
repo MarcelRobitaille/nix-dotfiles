@@ -56,7 +56,6 @@ $vlang\
 $vagrant\
 $zig\
 $buf\
-$nix_shell\
 $conda\
 $meson\
 $spack\
